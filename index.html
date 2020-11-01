@@ -136,6 +136,19 @@ function draw(e) {
     art.setAttribute('d', art.getAttribute('d')+' L'+x+' '+y);
    }
 }
+svg.addEventListener("touchstart",draw);
+svg.addEventListener("touchmove",draw);
+svg.addEventListener("mousedown",draw);
+svg.addEventListener("mousemove",draw);
+svg.addEventListener("touchend", function(e) {
+  svg.removeEventListener("touchstart",draw);
+});
+svg.addEventListener("mouseup", function(e) {
+  svg.removeEventListener("mousedown",draw);
+});
 
+window.onerror = function (errorMsg, url, lineNumber) {
+  alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber);
+}
 </script>
 </html>
