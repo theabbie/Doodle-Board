@@ -127,8 +127,8 @@ document.body.style.margin="0 0 0 0";
 var svg = document.querySelector("svg");
 var art = document.querySelector("path");
 function draw(e) {
-   var x = e.touches?e.touches[0].x:e.x;
-   var y = e.touches?e.touches[0].y:e.y;
+   var x = e.touches?e.touches[0].clientX:e.x;
+   var y = e.touches?e.touches[0].clientY:e.y;
    if (e.type=="touchstart" || e.type=="mousedown") {
     art.setAttribute('d', art.getAttribute('d')+' M'+x+' '+y);
    }
