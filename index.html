@@ -127,8 +127,8 @@ document.body.style.margin="0 0 0 0";
 var svg = document.querySelector("svg");
 var art = document.querySelector("path");
 function draw(e) {
-   var x = e.touches?e.touches[0].clientX:e.x;
-   var y = e.touches?e.touches[0].clientY:e.y;
+   var x = Math.floor(e.touches?e.touches[0].clientX:e.x);
+   var y = Math.floor(e.touches?e.touches[0].clientY:e.y);
    if (e.type=="touchstart" || e.type=="mousedown") {
     art.setAttribute('d', art.getAttribute('d')+' M'+x+' '+y);
    }
@@ -140,9 +140,9 @@ svg.addEventListener("touchstart",draw);
 svg.addEventListener("touchmove",draw);
 svg.addEventListener("mousedown",draw);
 svg.addEventListener("mousemove",draw);
-svg.addEventListener("touchend", function(e) {
+/*svg.addEventListener("touchend", function(e) {
   svg.removeEventListener("touchstart",draw);
-});
+});*/
 svg.addEventListener("mouseup", function(e) {
   svg.removeEventListener("mousedown",draw);
 });
